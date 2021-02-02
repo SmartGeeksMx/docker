@@ -1,0 +1,16 @@
+version: '3'
+services:
+  web:
+    image: odoo:14.0
+    container_name: odoo14_compose
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+  db:
+    image: postgres:10
+    container_name: postgres_compose
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
